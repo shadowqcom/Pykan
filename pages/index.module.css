@@ -30,6 +30,16 @@
     letter-spacing: 0.3rem;  
     line-height: 1;  
     margin-top: 3rem;  
+    margin-bottom: 1rem;  
+    font-weight: 800;  
+    min-width: 400px;  
+    color:#334155;  
+    --tw-text-opacity:1;  
+}  
+.subtitle {  
+    font-size: 3.25rem;  
+    letter-spacing: 0.3rem;  
+    line-height: 1;  
     margin-bottom: 3rem;  
     font-weight: 800;  
     min-width: 400px;  
@@ -37,7 +47,7 @@
     --tw-text-opacity:1;  
 }  
   
-.subtitle {  
+.describe {  
     font-size: 1.2rem;  
     margin-top: 1.5rem;  
     font-size: 1.125rem;  

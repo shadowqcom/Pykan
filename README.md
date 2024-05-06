@@ -15,14 +15,14 @@ Pykan can be installed via PyPI or directly from GitHub.
 
 #### Pre-requisites:
 
-```
+```sh
 Python 3.9.7 or higher
 pip
 ```
 
 #### Installation via github
 
-```
+```sh
 python -m venv pykan-env
 source pykan-env/bin/activate  # On Windows use `pykan-env\Scripts\activate`
 pip install git+https://github.com/KindXiaoming/pykan.git
@@ -30,7 +30,7 @@ pip install git+https://github.com/KindXiaoming/pykan.git
 
 #### Installation via PyPI:
 
-```
+```sh
 python -m venv pykan-env
 source pykan-env/bin/activate  # On Windows use `pykan-env\Scripts\activate`
 pip install pykan
@@ -38,7 +38,7 @@ pip install pykan
 
 #### Requirements
 
-```python
+```sh
 # python==3.9.7
 matplotlib==3.6.2
 numpy==1.24.4
@@ -51,13 +51,13 @@ tqdm==4.66.2
 
 After activating the virtual environment, you can install specific package requirements as follows:
 
-```python
+```sh
 pip install -r requirements.txt
 ```
 
 #### **Optional: Conda Environment Setup** For those who prefer using Conda:
 
-```
+```sh
 conda create --name pykan-env python=3.9.7
 conda activate pykan-env
 pip install git+https://github.com/KindXiaoming/pykan.git  # For GitHub installation

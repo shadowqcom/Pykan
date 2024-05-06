@@ -1,0 +1,69 @@
+---
+title: 快速入门
+---
+
+# Kolmogorov-Arnold representation theorem
+
+Kolmogorov-Arnold representation theorem states that if 
+ is a multivariate continuous function on a bounded domain, 
+ then it can be written as a finite composition of continuous functions of a single variable and the binary operation of addition. 
+ More specifically, for a smooth $f : [0,1]^n \to \mathbb{R}$,
+
+$$ f(x) = f(x_1,...,x_n)=\sum_{q=1}^{2n+1}\Phi_q(\sum_{p=1}^n \phi_{q,p}(x_p)) $$
+
+where :$ \phi_{q,p}:[0,1]\to\mathbb{R} $ and
+:$ \Phi_q:\mathbb{R}\to\mathbb{R}$ . In a sense, they showed that the
+only true multivariate function is addition, since every other function
+can be written using univariate functions and sum. However, this 2-Layer
+width-:$ (2n+1) $ Kolmogorov-Arnold representation may not be smooth
+due to its limited expressive power. We augment its expressive power by
+generalizing it to arbitrary depths and widths.
+
+## Kolmogorov-Arnold Network (KAN)
+
+The Kolmogorov-Arnold representation can be written in matrix form
+
+$$ f(x)={\bf \Phi}_{\rm out}\circ{\bf \Phi}_{\rm in}\circ {\bf x} $$
+
+where
+
+$$ {\bf \Phi}_{\rm in}= \begin{pmatrix} \phi_{1,1}(\cdot) & \cdots & \phi_{1,n}(\cdot) \\ \vdots & & \vdots \\ \phi_{2n+1,1}(\cdot) & \cdots & \phi_{2n+1,n}(\cdot) \end{pmatrix},\quad {\bf \Phi}_{\rm out}=\begin{pmatrix} \Phi_1(\cdot) & \cdots & \Phi_{2n+1}(\cdot)\end{pmatrix} $$
+
+We notice that both : $ {\bf \Phi}_{\rm in} $ and
+: $ {\bf \Phi}_{\rm out} $ are special cases of the following function
+matrix : $ {\bf \Phi}$ (with : $ n_{\rm in} $ inputs, 
+and: $ n_{\rm out} $ outputs), we call a Kolmogorov-Arnold layer:
+
+
+$$ {\bf \Phi}= \begin{pmatrix} \phi_{1,1}(\cdot) & \cdots & \phi_{1,n_{\rm in}}(\cdot) \\ \vdots & & \vdots \\ \phi_{n_{\rm out},1}(\cdot) & \cdots & \phi_{n_{\rm out},n_{\rm in}}(\cdot) \end{pmatrix} $$
+
+$$ {\bf \Phi}_{\rm in} $$ corresponds to
+$$ n_{\rm in}=n, n_{\rm out}=2n+1 $$, and : $$ {\bf \Phi}_{\rm out} $$
+corresponds to : $ n_{\rm in}=2n+1, n_{\rm out}=1 $.
+
+After defining the layer, we can construct a Kolmogorov-Arnold network
+simply by stacking layers! Let’s say we have :math:`L` layers, with the
+:math:`l^{\rm th}` layer :math:`{\bf \Phi}_l` have shape
+:math:`(n_{l+1}, n_{l})`. Then the whole network is
+
+$$ {\rm KAN}({\bf x})={\bf \Phi}_{L-1}\circ\cdots \circ{\bf \Phi}_1\circ{\bf \Phi}_0\circ {\bf x} $$
+
+In constrast, a Multi-Layer Perceptron is interleaved by linear layers
+:math:`{\bf W}_l` and nonlinearities :math:`\sigma`:
+
+$$ {\rm MLP}({\bf x})={\bf W}_{L-1}\circ\sigma\circ\cdots\circ {\bf W}_1\circ\sigma\circ {\bf W}_0\circ {\bf x} $$
+
+The main difference is that the Kolmogorov-Arnold network is fully
+connected, while the MLP is not.
+
+## KANs in PyTorch
+
+KANs in PyTorch are implemented as a PyTorch module. The module
+contains two layers: a :math:`{\bf \Phi}` layer and a :math:`\sigma`
+layer. The :math:`{\bf \Phi}` layer is a fully-connected layer, with a
+
+A KAN can be easily visualized. (1) A KAN is simply stack of KAN layers.
+(2) Each KAN layer can be visualized as a fully-connected layer, with a
+1D function placed on each edge. Let’s see an example below.
+
+## Get started with KANs

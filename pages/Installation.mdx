@@ -1,0 +1,75 @@
+---
+title: 安装 pykan
+---
+
+# Installation
+Pykan can be installed via PyPI or directly from GitHub. 
+
+**Pre-requisites:**
+
+```
+Python 3.9.7 or higher
+pip
+```
+
+**Installation via github**
+
+```
+python -m venv pykan-env
+source pykan-env/bin/activate  # On Windows use `pykan-env\Scripts\activate`
+pip install git+https://github.com/KindXiaoming/pykan.git
+```
+
+**Installation via PyPI:**
+```
+python -m venv pykan-env
+source pykan-env/bin/activate  # On Windows use `pykan-env\Scripts\activate`
+pip install pykan
+```
+Requirements
+
+```python
+# python==3.9.7
+matplotlib==3.6.2
+numpy==1.24.4
+scikit_learn==1.1.3
+setuptools==65.5.0
+sympy==1.11.1
+torch==2.2.2
+tqdm==4.66.2
+```
+
+After activating the virtual environment, you can install specific package requirements as follows:
+```python
+pip install -r requirements.txt
+```
+
+**Optional: Conda Environment Setup**
+For those who prefer using Conda:
+```
+conda create --name pykan-env python=3.9.7
+conda activate pykan-env
+pip install git+https://github.com/KindXiaoming/pykan.git  # For GitHub installation
+# or
+pip install pykan  # For PyPI installation
+```
+
+## Computation requirements
+
+教程中的示例可在单个 CPU 上运行，通常不到 10 分钟。本文中的所有示例都可以在不到一天的时间内在单个 CPU 上运行。
+针对 PDE 训练 KAN 的成本最高，在单个 CPU 上可能需要数小时到数天的时间。我们使用 CPU 来训练我们的模型，
+因为我们进行了参数扫描（针对 MLP 和 KAN）以获得帕累托前沿。有成千上万的小模型，这就是我们使用 CPU 而不是 GPU 的原因。
+诚然，我们的问题规模比典型的机器学习任务要小，但对于科学相关的任务来说是典型的。如果您的任务规模很大，建议使用 GPU。
+
+
+## Citation
+```python
+@misc{liu2024kan,
+      title={KAN: Kolmogorov-Arnold Networks}, 
+      author={Ziming Liu and Yixuan Wang and Sachin Vaidya and Fabian Ruehle and James Halverson and Marin Soljačić and Thomas Y. Hou and Max Tegmark},
+      year={2024},
+      eprint={2404.19756},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
+}
+```

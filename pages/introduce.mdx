@@ -1,0 +1,61 @@
+---
+title: pykan 简介
+---
+
+
+![](https://github.com/KindXiaoming/pykan/assets/23551623/a2d2d225-b4d2-4c1e-823e-bc45c7ea96f9)
+
+# Kolmogorov-Arnold Networks (KANs)
+这是论文[“KA​​N：Kolmogorov-Arnold Networks”](https://arxiv.org/abs/2404.19756)的 github 存储库。以下是[作者](/introduce#作者说)针对当前 KAN 炒作做出的回应。
+
+柯尔莫哥洛夫-阿诺德网络 (KAN) 是多层感知器 (MLP) 的有前途的替代品。 KAN 与 MLP 一样具有强大的数学基础：MLP 基于通用逼近定理，而 KAN 基于 Kolmogorov-Arnold 表示定理。 
+KAN 和 MLP 是双重的：KAN 在边上具有激活函数，而 MLP 在节点上具有激活函数。这个简单的改变使得 KAN 在模型**准确性**和**可解释性**方面都比 MLP 更好（有时更好！）。
+[这里是]()KAN 的快速介绍。
+![](https://github.com/KindXiaoming/pykan/assets/23551623/695adc2d-0d0b-4e4b-bcff-db2c8070f841)
+
+## 准确性
+**KAN 的扩展速度比 MLP 更快。 KAN 比参数较少的 MLP 具有更好的准确性。**
+
+Please set `torch.set_default_dtype(torch.float64)` if you want high precision.
+
+**示例1：拟合符号公式**
+![](https://github.com/KindXiaoming/pykan/assets/23551623/e1fc3dcc-c1f6-49d5-b58e-79ff7b98a49b)
+
+**示例2：拟合特殊函数**
+![](https://github.com/KindXiaoming/pykan/assets/23551623/b2124337-cabf-4e00-9690-938e84058a91)
+
+**Example 3: PDE solving**
+![](https://github.com/KindXiaoming/pykan/assets/23551623/5da94412-c409-45d1-9a60-9086e11d6ccc)
+
+**Example 4: avoid catastrophic forgetting**
+![](https://github.com/KindXiaoming/pykan/assets/23551623/57d81de6-7cff-4e55-b8f9-c4768ace2c77)
+
+
+## 可解释性
+**KANs can be intuitively visualized. KANs offer interpretability and interactivity that MLPs cannot provide. We can use KANs to potentially discover new scientific laws.**
+
+**Example 1: Symbolic formulas**
+![](https://github.com/KindXiaoming/pykan/assets/23551623/3cfd1ca2-cd3e-4396-845e-ef8f3a7c55ef)
+
+**Example 2: Discovering mathematical laws of knots**
+![](https://github.com/KindXiaoming/pykan/assets/23551623/80451ac2-c5fd-45b9-89a7-1637ba8145af)
+
+**Example 3: Discovering physical laws of Anderson localization**
+![](https://github.com/KindXiaoming/pykan/assets/23551623/8ee507a0-d194-44a9-8837-15d7f5984301)
+
+**Example 4: Training of a three-layer KAN**
+
+![kan_training_low_res](https://github.com/KindXiaoming/pykan/assets/23551623/e9f215c7-a393-46b9-8528-c906878f015e)
+
+
+## 作者说
+I would like to thank everyone who's interested in KANs. When I designed KANs and wrote codes, I have math & physics examples (which are quite small scale!) in mind, so did not consider much optimization in efficiency or reusability. It's so honored to receive this unwarranted attention, which is way beyond my expectation. So I accept any criticism from people complaning about the efficiency and resuability of the codes, my apology. My only hope is that you find `model.plot()` fun to play with :).
+
+For users who are interested in scientific discoveries and scientific computing (the orginal users intended for), I'm happy to hear your applications and collaborate. This repo will continue remaining mostly for this purpose, probably without signifiant updates for efficiency. In fact, there are already implmentations like [efficientkan](https://github.com/Blealtan/efficient-kan) or [fouierkan](https://github.com/GistNoesis/FourierKAN/) that look promising for improving efficiency.
+
+For users who are machine learning focus, I have to be honest that KANs are likely not a simple plug-in that can be used out-of-the box (yet). Hyperparameters need tuning, and more tricks special to your applications should be introduced. For example, [GraphKAN](https://github.com/WillHua127/GraphKAN-Graph-Kolmogorov-Arnold-Networks) suggests that KANs should better be used in latent space (need embedding and unembedding linear layers after inputs and before outputs). [KANRL](https://github.com/riiswa/kanrl) suggests that some trainable parameters should better be fixed in reinforcement learning to increase training stability.
+
+The most common question I've been asked lately is whether KANs will be next-gen LLMs. I don't have good intuition about this. KANs are designed for applications where one cares about high accuracy and/or interpretability. We do care about LLM interpretability for sure, but interpretability can mean wildly different things for LLM and for science. Do we care about high accuracy for LLMs? I don't know, scaling laws seem to imply so, but probably not too high precision. Also, accuracy can also mean different things for LLM and for science. This subtlety makes it hard to directly transfer conclusions in our paper to LLMs, or machine learning tasks in general. However, I would be very happy if you have enjoyed the high-level idea (learnable activation functions on edges, or interacting with AI for scientific discoveries), which is not necessariy *the future*, but can hopefully inspire and impact *many possible futures*. As a physicist, the message I want to convey is less of "KANs are great", but more of "try thinking of current architectures critically and seeking fundamentally different alternatives that can do fun and/or useful stuff".
+
+I would like to welcome people to be critical of KANs, but also to be critical of critiques as well. Practice is the only criterion for testing understanding (实践是检验真理的唯一标准). We don't know many things beforehand until they are really tried and shown to be succeeding or failing. As much as I'm willing to see success mode of KANs, I'm equally curious about failure modes of KANs, to better understand the boundaries. KANs and MLPs cannot replace each other (as far as I can tell); they each have advantages in some settings and limitations in others. I would be intrigued by a theoretical framework that encompasses both and could even suggest new alternatives (physicists love unified theories, sorry :).
+

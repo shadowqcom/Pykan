@@ -1,0 +1,16 @@
+{
+    "index": {
+        "type": "page",
+        "title": "Nextra",
+        "display": "hidden",
+        "theme": {
+          "layout": "raw"
+        }
+      },
+    "introduce": "介绍",
+    "Installation": "安装",
+    "start":"快速入门",
+    "chat":"用户群",
+    "AboutAPI":"API相关",
+    "statement":"声明"
+}

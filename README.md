@@ -1,7 +1,8 @@
 # Pykan.org
 
 # Kolmogorov-Arnold Networks (KANs)
-![pykan](../static/326218913-a2d2d225-b4d2-4c1e-823e-bc45c7ea96f9.png)
+![pykan](./static/326218913-a2d2d225-b4d2-4c1e-823e-bc45c7ea96f9.png)
+
 
 Kolmogorov-Arnold Networks (KAN) 是多层感知器 (MLP) 的有前途的替代品。 KAN 与 MLP 一样具有强大的数学基础：MLP 基于通用逼近定理，而 KAN 基于 Kolmogorov-Arnold 表示定理。 KAN 和 MLP 是双重的：KAN 在边上具有激活函数，而 MLP 在节点上具有激活函数。这个简单的改变使得 KAN 在模型准确性和可解释性方面都比 MLP 更好（有时更好！）。  
 

@@ -1,6 +1,6 @@
 export default {
-    logo: <span>Pykan</span>,
-    faviconGlyph: '☁️',
+    logo: <span>🐨 Pykan</span>,
+    faviconGlyph: '🐨',
     project: {
       link: 'https://github.com/shadowqcom/Pykan'
     },

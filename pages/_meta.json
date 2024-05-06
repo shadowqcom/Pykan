@@ -1,16 +1,42 @@
 {
-    "index": {
-        "type": "page",
-        "title": "Nextra",
-        "display": "hidden",
-        "theme": {
-          "layout": "raw"
-        }
-      },
-    "introduce": "介绍",
-    "Installation": "安装",
-    "start":"快速入门",
-    "chat":"用户群",
-    "AboutAPI":"API相关",
-    "statement":"声明"
+  "index": {
+    "type": "page",
+    "title": "Pykan",
+    "display": "hidden",
+    "theme": {
+      "layout": "raw"
+    }
+  },
+  "docs": {
+    "title": "文档",
+    "type": "page",
+    "href": "/introduce",
+    "newWindow": false
+  },
+  "mojo": {
+    "title": "Mojo",
+    "type": "page",
+    "href": "https://mojocn.org",
+    "newWindow": true
+  },
+  "about": {
+    "type": "page",
+    "title": "about",
+    "theme": {
+      "typesetting": "article"
+    }
+  },
+  "404": {
+    "type": "page",
+    "theme": {
+      "timestamp": false,
+      "typesetting": "article"
+    }
+  },
+  "introduce": "介绍",
+  "Installation": "安装",
+  "start": "快速入门",
+  "chat": "用户群",
+  "AboutAPI": "API相关",
+  "statement": "声明"
 }
